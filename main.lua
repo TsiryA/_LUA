@@ -1,17 +1,14 @@
 function love.load(arg)
   -- body...
-  image = love.graphics.newImage('image.jpg')
+  image = love.graphics.newImage('medias/imgs/64_28.png')
   love.graphics.setNewFont(12)
-  love.graphics.setColor(0, 0, 0, 1)
+  -- color all graphics
+  love.graphics.setColor(10, 10, 10, 255)
   love.graphics.setBackgroundColor(255, 255, 255, 1)
+  imageX = 100;
+  imageY = 100;
 end
 
-
-function love.draw()
-  -- body...
-  love.graphics.draw(image, imageX, imageY)
-  love.graphics.print('Click and drag around or use key', 100, 100)
-end
 
 function love.update(dt)
   -- body...
@@ -27,6 +24,15 @@ function love.mousepressed(x, y, button, isTouch)
     imgY = y
   end
 end
+
+
+
+function love.draw()
+  -- body...
+  love.graphics.draw(image, 200, 200)
+  love.graphics.print('Click and drag around or use key', 100, 100)
+end
+
 
 
 function love.quit()
