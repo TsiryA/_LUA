@@ -1,3 +1,5 @@
+debug = true
+
 function love.load(arg)
   -- Load medias
 
