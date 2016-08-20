@@ -4,6 +4,7 @@ player = {
   y = 0,
   speed = 150,
   img = nil,
+  level = 0,
 
   -- functions
   ---- mouves ----
@@ -39,4 +40,8 @@ player = {
     end
   end,
 
+  -- draw the player
+  _draw = function (self)
+    love.graphics.draw(self.img, self.x, self.y)
+  end,
 }
