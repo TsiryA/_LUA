@@ -1,34 +1,44 @@
 debug = true
+require "entities/player"
 
 -- storage
-player = {x = 200, y = 610, speed = 150 , img = nil}
+players = {}
 
 function love.load(arg)
   -- Load medias
-  player.img = love.graphics.newImage('medias/imgs/player.png')
+  players[#players + 1] = player
+  players[1].img = love.graphics.newImage('medias/imgs/player.png')
   -- Load variables
 end
 
+
 function love.update(dt)
-  player.x = player.x + 100*dt
-  if player.x >= 480 then
-    player.x = -110
-    player.y = love.math.random(610)
-  end
+  -- default actions
   if love.keyboard.isDown('escape') then
     love.event.push('quit')
   end
+  -- player mouvement
+  if love.keyboard.isDown('up') then
+    players[1]:move_top(dt)
+  end
+
+  if love.keyboard.isDown('down') then
+    players[1]:move_back(dt)
+  end
+
   if love.keyboard.isDown('left') then
-    player.x = player.x - 100*dt
+    players[1]:move_left(dt)
   end
+
   if love.keyboard.isDown('right') then
-    player.x = player.x + 100*dt
+    players[1]:move_right(dt)
   end
+
 end
 
 function love.draw(dt)
   -- Just test
-  love.graphics.draw(player.img, player.x, player.y)
+  love.graphics.draw(players[1].img, players[1].x, players[1].y)
 end
 
 function love.quit()

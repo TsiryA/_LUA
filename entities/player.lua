@@ -8,7 +8,7 @@ player = {
   -- functions
   ---- mouves ----
   -- left move
-  move_left = function (dt)
+  move_left = function (self, dt)
     self.x = self.x - self.speed * dt
     if self.x <= 0 then
       self.x = 0
@@ -16,7 +16,7 @@ player = {
   end,
 
   -- right move
-  move_right = function (dt)
+  move_right = function (self, dt)
     self.x = self.x + self.speed * dt
     if self.x >= love.graphics.getWidth() - 50 then
       self.x = love.graphics.getWidth() - 50
@@ -24,7 +24,7 @@ player = {
   end,
 
   -- advance
-  move_top = function (dt)
+  move_top = function (self, dt)
     self.y = self.y - self.speed * dt
     if self.y <= 0 then
       self.y = 0
@@ -32,11 +32,11 @@ player = {
   end,
 
   -- backward
-  move_back = function (dt)
+  move_back = function (self, dt)
     self.y = self.y + self.speed * dt
     if self.y >= love.graphics.getHeight() - 50 then
       self.y = love.graphics.getHeight() - 50
     end
   end,
-  
+
 }
