@@ -1,3 +1,4 @@
+require "entities/screen"
 player = {
   -- attributes
   x = 0,
