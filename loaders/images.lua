@@ -12,3 +12,6 @@ playerPath = racinePath .. 'players/'
 imageStore.playersImg = helpers.loadImages(playerPath)
 
 -- images for clouds
+cloudsPath = racinePath .. 'clouds/'
+-- add all clouds image file to clouds array
+imageStore.cloudsImg = helpers.loadImages(cloudsPath)
