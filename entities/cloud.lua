@@ -22,14 +22,14 @@ cloud = {
   -- Generate a cloud
   ------------------------------------------------------------------------------
   _generate = function (self)
-    start = love.math.random(0, 1)
     -- select an image
     self.img = self.images[love.math.random(1, #self.images)]
-    -- setting starting position
-    self.y = love.math.random(0, screen.screen_height)
-    -- the x start should determine the direction
-    -- we assume that it only go straight to the bottom
+    -- decide here if the cloud will come from the top or the bottom
+    start = love.math.random(0, 1)
+    -- set offsets
     self.x = start * screen.screen_width
+    self.y = start * screen.screen_height
+    -- the way to move will depends on the offset
     if start == 0 then
       self.move = 1
     else
