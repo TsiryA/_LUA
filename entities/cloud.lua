@@ -43,7 +43,7 @@ cloud = {
   _move = function (self, dt)
     -- move the cloud
     self.x  = self.x + self.move * self.speedX * dt
-    self.y = self.y + self.speedY * dt
+    self.y = self.y + self.move * self.speedY * dt
   end,
 
 }

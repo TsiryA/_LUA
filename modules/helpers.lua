@@ -1,5 +1,9 @@
-helpers = {}
+-- in the helpers we have 3 types.
+-- 1. offsets: default values
+-- 2. state: current status
+-- 3. functions
 
+helpers = {}
 -- load all images in the folder
 -- helpers.loadImages(folder)
 -- @params(folder) string, the path of the folder from root project

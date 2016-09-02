@@ -1,4 +1,5 @@
 require "../modules/helpers"
+local _help = helpers
 -- racine of images path
 racinePath = 'medias/imgs/'
 
@@ -9,9 +10,9 @@ imageStore = {}
 -- images for players
 playerPath = racinePath .. 'players/'
 -- add all players image file to player array
-imageStore.playersImg = helpers.loadImages(playerPath)
+imageStore.playersImg = _help.loadImages(playerPath)
 
 -- images for clouds
 cloudsPath = racinePath .. 'clouds/'
 -- add all clouds image file to clouds array
-imageStore.cloudsImg = helpers.loadImages(cloudsPath)
+imageStore.cloudsImg = _help.loadImages(cloudsPath)
