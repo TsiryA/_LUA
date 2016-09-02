@@ -1,6 +1,8 @@
 helpers = {}
 
 -- load all images in the folder
+-- helpers.loadImages(folder)
+-- @params(folder) string, the path of the folder from root project
 helpers.loadImages = function(folder)
 	local lfs = love.filesystem
   fileArray = {}
