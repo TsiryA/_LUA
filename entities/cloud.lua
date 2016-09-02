@@ -1,9 +1,10 @@
 require "../loaders/images"
+require "../entities/screen"
 cloud = {
   ------------------------------------------------------------------------------
   -- GOBALS
   ------------------------------------------------------------------------------
-  images = imageSotre.cloudsImg, -- this array will contain all clouds images put at least 1 image
+  images = imageStore.cloudsImg, -- this array will contain all clouds images put at least 1 image
   screen_width = love.graphics.getWidth(),
   screen_height = love.graphics.getHeight(),
 
@@ -21,18 +22,18 @@ cloud = {
   -- Generate a cloud
   ------------------------------------------------------------------------------
   _generate = function (self)
-    start = love.math.math.random(0, 1)
+    start = love.math.random(0, 1)
     -- select an image
-    self.img = images[love.math.random(1, #images)]
+    self.img = self.images[love.math.random(1, #self.images)]
     -- setting starting position
-    self.y = love.math.random(0, screen_height)
+    self.y = love.math.random(0, screen.screen_height)
     -- the x start should determine the direction
     -- we assume that it only go straight to the bottom
-    self.x = start * screen_width
+    self.x = start * screen.screen_width
     if start == 0 then
-      move = 1
+      self.move = 1
     else
-      move = -1
+      self.move = -1
     end
   end,
 
