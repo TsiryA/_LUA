@@ -5,13 +5,20 @@ require "loaders/images"
 -- storage
 players = {}
 playersImg = imageStore.playersImg
-cloud1 = cloud
+clouds = {}
+clouds[1] = cloud:_generate()
+
+-- helpers shortcut
+local _helpers = helpers
+
+-- initiates
+local offset_clock = 5
+clock = offset_clock
 
 function love.load(arg)
   -- Load medias
   players[#players + 1] = player
   players[1].img = playersImg[love.math.random(1, #playersImg)]
-  cloud1:_generate()
   -- Load variables
 end
 
@@ -38,14 +45,28 @@ function love.update(dt)
     players[1]:move_right(dt)
   end
 
-  cloud1:_move(dt)
+  for i, cloud in ipairs(clouds) do
+    cloud:_move(dt)
+  end
+
+  if clock <= 0 then
+    clouds[#clouds + 1] = cloud:_generate()
+    clock = offset_clock
+  else
+    clock = clock - dt
+  end
 
 end
 
 function love.draw(dt)
   -- Just test
   love.graphics.draw(players[1].img, players[1].x, players[1].y)
-  love.graphics.draw(cloud1.img, cloud1.x, cloud1.y)
+  for i, cloud in ipairs(clouds) do
+    love.graphics.draw(cloud.img, cloud.x, cloud.y)
+  end
+  love.graphics.setColor(255, 255, 255, 255)
+  love.graphics.print(clock, 100, 100)
+  love.graphics.print(#clouds, 400, 100)
 
 end
 

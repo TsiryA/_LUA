@@ -35,6 +35,7 @@ cloud = {
     else
       self.move = -1
     end
+    return self
   end,
 
   ------------------------------------------------------------------------------
@@ -43,7 +44,7 @@ cloud = {
   _move = function (self, dt)
     -- move the cloud
     self.x  = self.x + self.move * self.speedX * dt
-    self.y = self.y + self.move * self.speedY * dt
+    self.y  = self.y + self.move * self.speedY * dt
   end,
 
 }
