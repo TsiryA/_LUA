@@ -6,7 +6,7 @@ require "loaders/images"
 players = {}
 playersImg = imageStore.playersImg
 clouds = {}
-clouds[1] = cloud:_generate()
+setToNul = 0
 
 -- helpers shortcut
 local _helpers = helpers
@@ -46,11 +46,16 @@ function love.update(dt)
   end
 
   for i, cloud in ipairs(clouds) do
+    if cloud == nil then
+      setToNul = setToNul + 1
+    end
     cloud:_move(dt)
+    cloud:_alive()
   end
 
   if clock <= 0 then
-    clouds[#clouds + 1] = cloud:_generate()
+    clouds[#clouds + 1] = Cloud:new()
+    clouds[#clouds]:_initialize()
     clock = offset_clock
   else
     clock = clock - dt
@@ -67,6 +72,7 @@ function love.draw(dt)
   love.graphics.setColor(255, 255, 255, 255)
   love.graphics.print(clock, 100, 100)
   love.graphics.print(#clouds, 400, 100)
+  love.graphics.print(setToNul, 400, 150)
 
 end
 
